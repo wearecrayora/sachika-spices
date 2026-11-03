@@ -113,7 +113,7 @@ export default function ProductCard({ product, priority = false, className = "" 
         <div className="mt-3 flex items-start justify-between gap-3 px-1">
           <div className="min-w-0">
             <p className="odia truncate text-xs text-cinnamon">{product.odia}</p>
-            <h3 className="truncate text-lg font-bold leading-tight">{product.name}</h3>
+            <h3 className="line-clamp-2 text-base font-bold leading-tight md:text-lg">{product.name}</h3>
             <p className="truncate text-sm opacity-60">{product.tagline}</p>
           </div>
           <div className="shrink-0 text-right">

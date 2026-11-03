@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, useGSAP, isFinePointer, reduceMotion } from "@/lib/gsap";
 import { getCategory, getProduct, inr, photosOf, type Product } from "@/lib/products";
 import { useCart, useUI } from "@/lib/store";
@@ -19,6 +19,11 @@ export default function ProductDetail({ product }: { product: Product }) {
   const root = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [sizeIdx, setSizeIdx] = useState(0);
+
+  useEffect(() => {
+    document.body.classList.add("has-buybar");
+    return () => document.body.classList.remove("has-buybar");
+  }, []);
   const [qty, setQty] = useState(1);
   const [shot, setShot] = useState(0);
   const [pin, setPin] = useState("");

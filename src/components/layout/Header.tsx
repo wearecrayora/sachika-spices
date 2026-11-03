@@ -24,6 +24,14 @@ export default function Header() {
   const { count } = cartTotals(lines);
   const { menuOpen, setMenu, setCart, setSearch, loaded } = useUI();
   const [solid, setSolid] = useState(false);
+  const [darkHero, setDarkHero] = useState(false);
+
+  // Re-check after the route transition swaps the page in.
+  useEffect(() => {
+    const check = () => setDarkHero(!!document.querySelector("main [data-hero-dark]"));
+    const timers = [0, 350, 900].map((ms) => window.setTimeout(check, ms));
+    return () => timers.forEach(clearTimeout);
+  }, [pathname]);
 
   useGSAP(
     () => {
@@ -58,7 +66,7 @@ export default function Header() {
     gsap.fromTo(countRef.current, { scale: 1.8, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.7, ease: "elastic.out(1, 0.4)" });
   }, [count]);
 
-  const onDark = pathname === "/" && !solid && !menuOpen;
+  const onDark = darkHero && !solid && !menuOpen;
 
   return (
     <header

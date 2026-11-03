@@ -191,7 +191,7 @@ export const products: Product[] = [
     reviews: 41,
     badge: "In stock",
     stage: GOLD,
-    images: img("maize-powder", 3),
+    images: img("maize-powder", 2),
     ingredientsArt: ["maize", "leaf", "sparkle"],
   },
   {
@@ -213,7 +213,7 @@ export const products: Product[] = [
     reviews: 27,
     badge: "Limited stock",
     stage: TURMERIC,
-    images: img("maize-millet-blend", 3),
+    images: img("maize-millet-blend", 2),
     ingredientsArt: ["millet", "maize", "sparkle"],
   },
   {

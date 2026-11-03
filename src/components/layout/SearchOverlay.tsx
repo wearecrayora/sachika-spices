@@ -65,7 +65,7 @@ export default function SearchOverlay() {
             value={term}
             onChange={(e) => setTerm(e.target.value)}
             onKeyDown={(e) => e.key === "Escape" && setSearch(false)}
-            placeholder="Search turmeric, chilli, millets…"
+            placeholder="Search spices…"
             className="display w-full bg-transparent text-4xl outline-none placeholder:text-ink/35 md:text-7xl"
             aria-label="Search products"
           />

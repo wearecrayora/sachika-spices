@@ -22,7 +22,7 @@ export default function Testimonials() {
         stagger: 0.12,
         duration: 1.3,
         ease: "bounce.out",
-        scrollTrigger: { trigger: q("[data-notes]")[0], start: "top 75%", once: true },
+        scrollTrigger: { trigger: q("[data-notes]")[0], start: "top 95%", once: true },
       });
     },
     { scope: root },

@@ -27,10 +27,11 @@ export default function PageHero({
     { c: "right-[24%] bottom-[12%] w-10 md:w-16", s: "0.4" },
     { c: "right-[3%] bottom-[18%] w-12 md:w-20", s: "1.2" },
   ];
+  const dark = !["var(--color-ink)", "#2b160c"].includes(fg);
   return (
-    <section className="relative overflow-hidden border-b border-ink/15 pb-14 pt-[calc(var(--header-h)+3rem)] md:pb-20 md:pt-[calc(var(--header-h)+5rem)]" style={{ background: bg, color: fg }}>
+    <section data-hero-dark={dark || undefined} className="relative overflow-hidden border-b border-ink/15 pb-14 pt-[calc(var(--header-h)+3rem)] md:pb-20 md:pt-[calc(var(--header-h)+5rem)]" style={{ background: bg, color: fg }}>
       {odia && (
-        <span className="odia pointer-events-none absolute -bottom-[0.25em] right-[-0.05em] select-none text-[34vw] font-bold leading-none opacity-[0.08] md:text-[22vw]" aria-hidden>
+        <span className="odia pointer-events-none absolute -bottom-[0.25em] right-[-0.05em] select-none whitespace-nowrap text-[34vw] font-bold leading-none opacity-[0.08] md:text-[22vw]" aria-hidden>
           {odia}
         </span>
       )}

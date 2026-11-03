@@ -23,7 +23,7 @@ const STEPS = [
 export default function ProcessPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink pb-20 pt-[calc(var(--header-h)+3rem)] text-cream md:pb-28">
+      <section data-hero-dark className="relative overflow-hidden bg-ink pb-20 pt-[calc(var(--header-h)+3rem)] text-cream md:pb-28">
         <div className="wrap grid items-center gap-10 md:grid-cols-[1fr_1.1fr]">
           <div data-pop className="relative mx-auto aspect-square w-[80%] max-w-[480px]">
             <div className="absolute inset-0 rounded-full border border-dashed border-gold/40" />

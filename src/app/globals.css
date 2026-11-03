@@ -234,6 +234,16 @@ body::after {
     linear-gradient(#000 0 0) top / 100% calc(100% - var(--s)) no-repeat;
 }
 
+/* Phones: the product page's fixed buy bar would otherwise cover the end of the footer. */
+@media (max-width: 1023px) {
+  body.has-buybar footer {
+    padding-bottom: 76px;
+  }
+  body.has-buybar [data-toast] {
+    bottom: 88px;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

@@ -50,16 +50,16 @@ export default function Manifesto() {
   return (
     <section ref={root} className="relative overflow-hidden py-28 md:py-44">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div data-speed="0.6" className="absolute left-[4%] top-[12%] w-16 md:w-24">
+        <div data-speed="0.6" className="absolute left-[4%] top-[2%] w-14 md:top-[12%] md:w-24">
           <Ingredient kind="turmeric" className="w-full rotate-12" />
         </div>
-        <div data-speed="1.1" className="absolute right-[6%] top-[22%] w-12 md:w-20">
+        <div data-speed="1.1" className="absolute right-[6%] top-[4%] w-12 md:top-[22%] md:w-20">
           <Ingredient kind="chilli" className="w-full -rotate-12" />
         </div>
-        <div data-speed="0.4" className="absolute bottom-[10%] left-[12%] w-10 md:w-16">
+        <div data-speed="0.4" className="absolute bottom-[1%] left-[12%] w-10 md:bottom-[10%] md:w-16">
           <Ingredient kind="coriander" className="w-full" />
         </div>
-        <div data-speed="0.9" className="absolute bottom-[14%] right-[16%] w-14 md:w-20">
+        <div data-speed="0.9" className="absolute bottom-[14%] right-[16%] hidden w-14 md:block md:w-20">
           <Ingredient kind="millet" className="w-full rotate-12" />
         </div>
       </div>

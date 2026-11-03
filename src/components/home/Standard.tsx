@@ -63,7 +63,7 @@ export default function Standard() {
             <span className="relative block aspect-square overflow-hidden rounded">
               <Image src="/products/turmeric-powder/2.webp" alt="Sachika turmeric, chilli and coriander powders on a kitchen table" fill sizes="20vw" className="object-cover" />
             </span>
-            <figcaption className="absolute inset-x-0 bottom-1 text-center text-[11px] font-bold">Sealed fresh, every batch</figcaption>
+            <figcaption className="absolute inset-x-0 bottom-1 truncate px-1 text-center text-[11px] font-bold">Sealed fresh</figcaption>
           </figure>
         </div>
 

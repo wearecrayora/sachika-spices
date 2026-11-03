@@ -12,16 +12,18 @@ import CircleText from "@/components/ui/CircleText";
 const FRAMES = ["turmeric-powder", "chilli-powder", "coriander-powder", "cumin-powder", "maize-powder", "maize-millet-blend"].map((s) => getProduct(s)!);
 
 // The ingredient "spread" around the pack: position (%), size (vw), depth for parallax.
-const SPREAD: { k: IngredientKind; x: number; y: number; s: number; d: number; r: number }[] = [
-  { k: "turmeric", x: 41, y: 31, s: 9, d: 1.4, r: -20 },
-  { k: "chilli", x: 83, y: 22, s: 9, d: 1.1, r: 15 },
-  { k: "sparkle", x: 26, y: 70, s: 5, d: 0.6, r: 0 },
-  { k: "maize", x: 77, y: 70, s: 9, d: 1.3, r: 10 },
-  { k: "coriander", x: 45, y: 63, s: 7, d: 0.9, r: 0 },
-  { k: "millet", x: 92, y: 48, s: 9, d: 0.8, r: 30 },
-  { k: "staranise", x: 30, y: 12, s: 6, d: 0.5, r: 0 },
-  { k: "cumin", x: 64, y: 12, s: 6, d: 0.7, r: 20 },
-  { k: "leaf", x: 60, y: 84, s: 7, d: 1.2, r: -10 },
+// `m` is the phone position, in the side gutters beside the stacked headline and pack
+// (null hides it on phones, where there's no free space for it).
+const SPREAD: { k: IngredientKind; x: number; y: number; s: number; d: number; r: number; m: [number, number] | null }[] = [
+  { k: "turmeric", x: 41, y: 31, s: 9, d: 1.4, r: -20, m: [11, 45] },
+  { k: "chilli", x: 83, y: 22, s: 9, d: 1.1, r: 15, m: [89, 41] },
+  { k: "sparkle", x: 26, y: 70, s: 5, d: 0.6, r: 0, m: [14, 63] },
+  { k: "maize", x: 77, y: 70, s: 9, d: 1.3, r: 10, m: [87, 61] },
+  { k: "coriander", x: 45, y: 63, s: 7, d: 0.9, r: 0, m: null },
+  { k: "millet", x: 92, y: 48, s: 9, d: 0.8, r: 30, m: [90, 18] },
+  { k: "staranise", x: 30, y: 12, s: 6, d: 0.5, r: 0, m: [10, 19] },
+  { k: "cumin", x: 64, y: 12, s: 6, d: 0.7, r: 20, m: null },
+  { k: "leaf", x: 60, y: 84, s: 7, d: 1.2, r: -10, m: null },
 ];
 
 export default function Hero() {
@@ -106,7 +108,7 @@ export default function Hero() {
   );
 
   return (
-    <section ref={root} className="relative min-h-[100svh] overflow-hidden bg-cinnamon pt-[var(--header-h)] text-cream">
+    <section ref={root} data-hero-dark className="relative min-h-[100svh] overflow-hidden bg-cinnamon pt-[var(--header-h)] text-cream">
       <span className="odia pointer-events-none absolute -bottom-[6vw] left-1/2 -translate-x-1/2 select-none text-[40vw] font-bold leading-none text-ink/15" aria-hidden>
         ମସଲା
       </span>
@@ -116,7 +118,12 @@ export default function Hero() {
           {/* the spread */}
           <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
             {SPREAD.map((s, i) => (
-              <div key={i} data-ing className="absolute" style={{ left: `${s.x}%`, top: `${s.y}%`, width: `${s.s * 1.5}vw`, minWidth: 44, maxWidth: 150 }}>
+              <div
+                key={i}
+                data-ing
+                className={`absolute left-[var(--mx)] top-[var(--my)] md:left-[var(--x)] md:top-[var(--y)] ${s.m ? "" : "max-md:hidden"}`}
+                style={{ "--x": `${s.x}%`, "--y": `${s.y}%`, "--mx": `${s.m?.[0] ?? s.x}%`, "--my": `${s.m?.[1] ?? s.y}%`, width: `${s.s * 1.5}vw`, minWidth: 44, maxWidth: 150 } as React.CSSProperties}
+              >
                 <div data-ing-inner style={{ rotate: `${s.r}deg` }}>
                   <Ingredient kind={s.k} className="w-full -translate-x-1/2 -translate-y-1/2" />
                 </div>
